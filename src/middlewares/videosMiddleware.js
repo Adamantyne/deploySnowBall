@@ -7,7 +7,7 @@ export async function validateVideoId(req, res, next) {
   const {id} = req.params;
   try {
     if(!ObjectId.isValid(id)){
-        return res.status(400).send("id inválido");
+        return res.status(400).send("id é inválido");
     }
     const videoFromDb = await db.collection("videos").findOne({_id: new ObjectId(id)});
     if(!videoFromDb){
